@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ltd.newbee.mall.dao.CartMapper">
+<resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.Cart">
+  <id column="cart_id" jdbcType="INTEGER" property="cartId"/>
+  <result column="user_id" jdbcType="BIGINT" property="userId"/>
+  <result column="param_id" jdbcType="INTEGER" property="paramId"/>
+  <result column="param_count" jdbcType="INTEGER" property="paramCount"/>
+</resultMap>
+<sql id = "Base_Column_List">
+  cart_id, user_id, param_id, param_count
+</sql>
+
+<select id="selectByUserIdAndParamId" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List"/>
+  from cart_item
+  where user_id = #{userId,jdbcType = BIGINT} and param_id = #{paramId,jdbcType = INTEGER}
+  limit 1
+</select>
+
+<select id="selectCountByUserId" resultType="int">
+  select
+    count(*)
+  from cart_item
+  where user_id = #{newBeeMallUserId,jdbcType=BIGINT}
+</select>
+<select id="selectByUserId" resultMap="BaseResultMap">
+  select
+  <include refid="Base_Column_List"/>
+  from cart_item
+  where user_id = #{userId,jdbcType=BIGINT}
+  limit #{number}
+</select>
+</mapper>
