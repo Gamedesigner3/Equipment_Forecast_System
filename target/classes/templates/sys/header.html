@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head-fragment(title,path)">
+    <meta charset="UTF-8">
+    <title>在线评估系统</title>
+    <link rel="stylesheet" th:href="@{/sys/css/swiper-bundle.min.css}">
+    <link rel="stylesheet" th:href="@{/sys/css/iconfont.css}">
+    <link rel="stylesheet" th:href="@{/sys/css/common.css}">
+    <link rel="stylesheet" th:href="@{/sys/styles/header.css}">
+    <link rel="stylesheet" th:href="@{'/sys/styles/'+${path}+'.css'}">
+    <link rel="stylesheet" th:href="@{/admin/plugins/sweetalert/sweetalert.css}"/>
+    </head>
+<nav id="nav" th:fragment="nav-fragment">
+</nav>
+<header id="header" th:fragment="header-fragment">
+    <div class="center">
+        <ul class="fl">
+            <li><a th:href="@{/index}">预测系统</a></li>
+            <li><a th:href="@{/admin}">后台管理系统</a></li>
+        </ul>
+        <div class="fr">
+            <th:block th:unless="${session.sysUser==null}">
+                <div class="user">
+                    <ul class="selector">
+                        <li>
+                            <a th:href="@{/logout}">
+                                退出登录
+                            </a>
+                        </li>
+                    </ul>
+                    <a href="##" class="username">
+                        <th:block th:text="${session.sysUser.nickName}"></th:block>
+                        <i class="iconfont icon-down"></i>
+                    </a>
+                </div>
+            </th:block>
+            <th:block th:if="${session.sysUser==null}">
+                <ul class="login">
+                    <li><a th:href="@{/login}">登录</a></li>
+                    <li><a th:href="@{/register}">注册</a></li>
+                </ul>
+            </th:block>
+        </div>
+    </div>
+</header>
+</html>

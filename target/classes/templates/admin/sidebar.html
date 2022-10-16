@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<aside th:fragment="sidebar-fragment(path)" class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a th:href="@{/admin/index}" class="brand-link">
+        <img th:src="@{/admin/dist/img/img-upload.png}" alt="ssm-cluster Logo"
+             class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light">后台管理</span>
+    </a>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                data-accordion="false">
+                <li class="nav-header">Dashboard</li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/index}" th:class="${path}=='index'?'nav-link active':'nav-link'">
+                        <i class="nav-icon fa fa-dashboard"></i>
+                        <p>
+                            Dashboard
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/params}" th:class="${path}=='parms'?'nav-link active':'nav-link'">
+                        <i class="fa fa-archive nav-icon" aria-hidden="true"></i>
+                        <p>
+                            参数管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/users}" th:class="${path}=='users'?'nav-link active':'nav-link'">
+                        <i class="fa fa-users nav-icon" aria-hidden="true"></i>
+                        <p>
+                            会员管理
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-header">系统管理</li>
+                <li class="nav-item">
+                    <a th:href="@{/admin/logout}" class="nav-link">
+                        <i class="fa fa-sign-out nav-icon"></i>
+                        <p>安全退出</p>
+                    </a>
+                </li>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>
+</html>
