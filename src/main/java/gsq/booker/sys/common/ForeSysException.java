@@ -1,11 +1,11 @@
 package gsq.booker.sys.common;
 
-public class NewBeeMallException extends RuntimeException {
+public class ForeSysException extends RuntimeException {
 
-    public NewBeeMallException() {
+    public ForeSysException() {
     }
 
-    public NewBeeMallException(String message) {
+    public ForeSysException(String message) {
         super(message);
     }
 
@@ -15,7 +15,7 @@ public class NewBeeMallException extends RuntimeException {
      * @param message
      */
     public static void fail(String message) {
-        throw new NewBeeMallException(message);
+        throw new ForeSysException(message);
     }
 
 }

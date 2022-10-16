@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ltd.newbee.mall.dao.ParaMapper">
-  <resultMap id="BaseResultMap" type="ltd.newbee.mall.entity.Para">
+<mapper namespace="gsq.booker.sys.dao.ParaMapper">
+  <resultMap id="BaseResultMap" type="gsq.booker.sys.entity.Para">
     <id column="id" jdbcType="INTEGER" property="Id"/>
     <result column="idx1" jdbcType="FLOAT" property="Idx1"/>
   </resultMap>
@@ -41,7 +41,7 @@
     </foreach>
     );
   </select>
-  <update id="updateSelective" parameterType="ltd.newbee.mall.entity.Para">
+  <update id="updateSelective" parameterType="gsq.booker.sys.entity.Para">
     update forecast
     <set>
       idx1 = #{Idx1,jdbcType = VARCHAR},
